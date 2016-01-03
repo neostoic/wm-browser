@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::group(
 	['prefix' => 'api'],
 	function() {
-		Route::post('list', 'APISearchController@list');
+		Route::post('list', 'APISearchController@index');
 	}
 );
 

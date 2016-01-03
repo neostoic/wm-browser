@@ -29,7 +29,7 @@ class BaseController extends Controller
 			}
 		}
 
-		parent::__construct();
+		// parent::__construct();
 	}
 
 	/**

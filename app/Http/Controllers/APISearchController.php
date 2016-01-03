@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
 class APISearchController extends BaseController
 {
     //
-    public function list()
+    public function index()
     {
     	$in = $this->input();
     	if (!empty($this->payload['lat']) && !empty($this->payload['long']))
     	{
-    		return $this->bomb('Error', 'Missing Parameters: lat(double), long(double)', 400)
+    		return $this->bomb('Error', 'Missing Parameters: lat(double), long(double)', 400);
     	}
 
 		$post = [
