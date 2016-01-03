@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'api'], function() {
-	Route::post('list', 'APISearchController@list');
-});
+Route::group(
+	['prefix' => 'api'],
+	function() {
+		Route::post('list', 'APISearchController@list');
+	}
+);
 
 /*
 |--------------------------------------------------------------------------
