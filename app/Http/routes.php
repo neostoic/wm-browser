@@ -19,6 +19,8 @@ Route::group(
 	['prefix' => 'api'],
 	function() {
 		Route::post('list', 'APISearchController@index');
+
+		Route::get('phpinfo', 'NonAuthenticatedController@info');
 	}
 );
 
