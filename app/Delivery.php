@@ -10,4 +10,9 @@ class Delivery extends Model
 {
     //
     use ElasticquentTrait;
+
+    function getTypeName()
+	{
+	    return 'delivery';
+	}
 }

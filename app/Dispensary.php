@@ -10,4 +10,9 @@ class Dispensary extends Model
 {
     //
     use ElasticquentTrait;
+
+    function getTypeName()
+	{
+	    return 'dispensary';
+	}
 }
