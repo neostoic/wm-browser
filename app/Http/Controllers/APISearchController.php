@@ -74,7 +74,7 @@ class APISearchController extends BaseController
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $postJSON);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, 'Content-Type: application/json');
+		curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 
 		// grab URL and pass it to the browser
 		$results = curl_exec($ch);
