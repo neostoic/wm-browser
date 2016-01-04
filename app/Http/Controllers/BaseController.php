@@ -14,7 +14,6 @@ class BaseController extends Controller
 	 */
 	public function __construct ()
 	{
-		dd($_ENV);
 		//Log::debug("New Request!");
 		if ($_ENV['APP_DEBUG'] === true)
 		{
