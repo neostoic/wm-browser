@@ -17,7 +17,7 @@ class BaseController extends Controller
 		//Log::debug("New Request!");
 		if (config('app.debug') === true)
 		{
-			$data = self::scrubber($this->input());
+			//$data = self::scrubber($this->input());
 
 			//if(isset($data['password'])) $data['password'] = "****";
 
