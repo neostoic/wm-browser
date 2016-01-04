@@ -14,9 +14,8 @@ class BaseController extends Controller
 	 */
 	public function __construct ()
 	{
-		dd($_ENV);
 		//Log::debug("New Request!");
-		if ($_ENV['APP_DEBUG'] === true)
+		if (config('app.debug') === true)
 		{
 			$data = self::scrubber($this->input());
 
@@ -53,7 +52,7 @@ class BaseController extends Controller
 				{
 					// we have to do a raw write here...
 					http_response_code(400);
-					if($_ENV['APP_DEBUG'] === true)
+					if(config('app.debug') === true)
 						Log::debug("Invalid JSON in this request: ". $in);
 					echo json_encode(["message" => "Error: Malformed JSON"]);
 					exit;
@@ -102,7 +101,7 @@ class BaseController extends Controller
 		$outp = json_encode($output, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES );
 		$in = json_encode($output, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-		if ($_ENV['APP_DEBUG'] === true)
+		if (config('app.debug') === true)
 			Log::debug("Output: \r\n" . $outp );
 		trim($outp);
 
