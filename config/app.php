@@ -160,7 +160,7 @@ return [
          * Vendor Service Providers
          */
 
-        Cviebrock\LaravelElasticsearch\ServiceProvider::class
+        'Cviebrock\LaravelElasticsearch\ServiceProvider',
 
     ],
 
@@ -208,7 +208,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
-        'Elasticsearch' => Cviebrock\LaravelElasticsearch\Facade::class,
+        'Elasticsearch' => 'Cviebrock\LaravelElasticsearch\Facade',
 
     ],
 
