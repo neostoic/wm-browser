@@ -4,8 +4,7 @@
     $postdata = file_get_contents('php://input');
     $input = json_decode($input, true);
     
-    shell_exec( 'cd ../../ && git reset --hard HEAD && git pull' );
-    syslog(LOG_INFO, "Updating: ". getcwd());
+    shell_exec( 'git reset --hard HEAD && git pull' );
 	echo "success";
 
     closelog();
