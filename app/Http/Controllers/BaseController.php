@@ -14,14 +14,14 @@ class BaseController extends Controller
 	 */
 	public function __construct ()
 	{
-		//Log::debug("New Request!");
+		//\Log::debug("New Request!");
 		if (config('app.debug') === true)
 		{
 			//if(isset($data['password'])) $data['password'] = "****";
 
 			$data = json_encode($this->input(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
-			Log::debug("Posted data: ". $data );
+			\Log::debug("Posted data: ". $data );
 		}
 
 		// parent::__construct();
@@ -51,7 +51,7 @@ class BaseController extends Controller
 					// we have to do a raw write here...
 					http_response_code(400);
 					if(config('app.debug') === true)
-						Log::debug("Invalid JSON in this request: ". $in);
+						\Log::debug("Invalid JSON in this request: ". $in);
 					echo json_encode(["message" => "Error: Malformed JSON"]);
 					exit;
 				}
@@ -100,7 +100,7 @@ class BaseController extends Controller
 		$in = json_encode($output, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
 		if (config('app.debug') === true)
-			Log::debug("Output: \r\n" . $outp );
+			\Log::debug("Output: \r\n" . $outp );
 		trim($outp);
 
 		$response = (new Response($output, $code));
