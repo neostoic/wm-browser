@@ -8,6 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Commands\\Inspire' => $baseDir . '/app/Console/Commands/Inspire.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Delivery' => $baseDir . '/app/Delivery.php',
+    'App\\Dispensary' => $baseDir . '/app/Dispensary.php',
     'App\\Events\\Event' => $baseDir . '/app/Events/Event.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\APISearchController' => $baseDir . '/app/Http/Controllers/APISearchController.php',
