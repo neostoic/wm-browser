@@ -13,7 +13,8 @@ class APISearchController extends BaseController
     		return $this->bomb('Error', 'Missing Parameters: lat(double), long(double)', 400);
     	}
 
-		$post = [
+
+		$query = [
     		'sort' => [
     			[
     				'package_level_raw' => [
@@ -63,29 +64,8 @@ class APISearchController extends BaseController
     		],
     	];
 
-    	$postJSON = json_encode($post);
+    	$results = Weedmaps::searchByQuery($query);
 
-    	// create a new cURL resource
-		$ch = curl_init();
-
-		// set URL and other appropriate options
-		curl_setopt($ch, CURLOPT_URL, "https://search-prod.weedmaps.com:9201/weedmaps/_search");
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $postJSON);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-
-		// grab URL and pass it to the browser
-		$results = curl_exec($ch);
-
-		// close cURL resource, and free up system resources
-		curl_close($ch);
-
-		print_r($results);
-
-		$results = json_decode($results);
-
-		dd($results);
+    	dd($results);
     }
 }
