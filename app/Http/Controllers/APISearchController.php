@@ -82,6 +82,7 @@ class APISearchController extends BaseController
 		// close cURL resource, and free up system resources
 		curl_close($ch);
 
+		print_r($results);
 
 		$results = json_decode($results);
 
