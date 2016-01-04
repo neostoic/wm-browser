@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "cviebrock/laravel-elasticsearch": "^0.9.3"
+	"elasticquent/elasticquent": "dev-master",
+        "jenssegers/mongodb": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

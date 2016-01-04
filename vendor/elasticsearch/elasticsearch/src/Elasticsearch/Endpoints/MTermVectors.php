@@ -1,20 +1,22 @@
 <?php
+/**
+ * User: zach
+ * Date: 05/31/2013
+ * Time: 16:47:11 pm
+ */
 
 namespace Elasticsearch\Endpoints;
 
+use Elasticsearch\Endpoints\AbstractEndpoint;
 use Elasticsearch\Common\Exceptions;
 
 /**
  * Class MTermVectors
- *
- * @category Elasticsearch
- * @package  Elasticsearch\Endpoints
- * @author   Zachary Tong <zachary.tong@elasticsearch.com>
- * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
- * @link     http://elasticsearch.org
+ * @package Elasticsearch\Endpoints
  */
 class MTermVectors extends AbstractEndpoint
 {
+
     /**
      * @param array $body
      *
@@ -28,7 +30,6 @@ class MTermVectors extends AbstractEndpoint
         }
 
         $this->body = $body;
-
         return $this;
     }
 
@@ -38,6 +39,7 @@ class MTermVectors extends AbstractEndpoint
     protected function getURI()
     {
         return $this->getOptionalURI('_mtermvectors');
+
     }
 
     /**

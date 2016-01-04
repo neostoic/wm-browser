@@ -1,4 +1,9 @@
 <?php
+/**
+ * User: zach
+ * Date: 7/23/14
+ * Time: 2:25 PM
+ */
 
 namespace Elasticsearch\Endpoints\Script;
 
@@ -9,15 +14,17 @@ use Elasticsearch\Common\Exceptions;
  * Class Delete
  *
  * @category Elasticsearch
- * @package  Elasticsearch\Endpoints\Script
+ * @package Elasticsearch\Endpoints\Script
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
+
 class Delete extends AbstractEndpoint
 {
     /** @var  String */
     private $lang;
+
 
     /**
      * @param $lang
@@ -31,9 +38,9 @@ class Delete extends AbstractEndpoint
         }
 
         $this->lang = $lang;
-
         return $this;
     }
+
 
     /**
      * @throws \Elasticsearch\Common\Exceptions\RuntimeException
@@ -58,6 +65,7 @@ class Delete extends AbstractEndpoint
         return $uri;
     }
 
+
     /**
      * @return string[]
      */
@@ -68,6 +76,7 @@ class Delete extends AbstractEndpoint
             'version_type'
         );
     }
+
 
     /**
      * @return string

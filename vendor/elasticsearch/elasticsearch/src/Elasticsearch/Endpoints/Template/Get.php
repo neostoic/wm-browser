@@ -1,4 +1,9 @@
 <?php
+/**
+ * User: zach
+ * Date: 7/23/14
+ * Time: 2:25 PM
+ */
 
 namespace Elasticsearch\Endpoints\Template;
 
@@ -9,13 +14,15 @@ use Elasticsearch\Common\Exceptions;
  * Class Get
  *
  * @category Elasticsearch
- * @package  Elasticsearch\Endpoints\Template
+ * @package Elasticsearch\Endpoints\Template
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
+
 class Get extends AbstractEndpoint
 {
+
     /**
      * @throws \Elasticsearch\Common\Exceptions\RuntimeException
      * @return string
@@ -33,6 +40,7 @@ class Get extends AbstractEndpoint
         return $uri;
     }
 
+
     /**
      * @return string[]
      */
@@ -40,6 +48,7 @@ class Get extends AbstractEndpoint
     {
         return array();
     }
+
 
     /**
      * @return string

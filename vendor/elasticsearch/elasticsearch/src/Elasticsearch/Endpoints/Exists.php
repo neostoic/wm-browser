@@ -1,18 +1,25 @@
 <?php
+/**
+ * User: zach
+ * Date: 01/20/2014
+ * Time: 14:34:49 pm
+ */
 
 namespace Elasticsearch\Endpoints;
 
+use Elasticsearch\Endpoints\AbstractEndpoint;
 use Elasticsearch\Common\Exceptions;
 
 /**
  * Class Exists
  *
  * @category Elasticsearch
- * @package  Elasticsearch\Endpoints
+ * @package Elasticsearch\Endpoints
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
+
 class Exists extends AbstractEndpoint
 {
     /**
@@ -48,6 +55,7 @@ class Exists extends AbstractEndpoint
         return $uri;
     }
 
+
     /**
      * @return string[]
      */
@@ -61,6 +69,7 @@ class Exists extends AbstractEndpoint
             'routing',
         );
     }
+
 
     /**
      * @return string

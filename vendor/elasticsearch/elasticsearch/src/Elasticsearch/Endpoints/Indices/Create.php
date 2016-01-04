@@ -1,4 +1,9 @@
 <?php
+/**
+ * User: zach
+ * Date: 01/20/2014
+ * Time: 14:34:49 pm
+ */
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -9,11 +14,12 @@ use Elasticsearch\Common\Exceptions;
  * Class Create
  *
  * @category Elasticsearch
- * @package  Elasticsearch\Endpoints\Indices
+ * @package Elasticsearch\Endpoints\Indices
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
+
 class Create extends AbstractEndpoint
 {
     /**
@@ -28,10 +34,12 @@ class Create extends AbstractEndpoint
             return $this;
         }
 
-        $this->body = $body;
 
+        $this->body = $body;
         return $this;
     }
+
+
 
     /**
      * @throws \Elasticsearch\Common\Exceptions\RuntimeException
@@ -54,6 +62,7 @@ class Create extends AbstractEndpoint
         return $uri;
     }
 
+
     /**
      * @return string[]
      */
@@ -64,6 +73,7 @@ class Create extends AbstractEndpoint
             'master_timeout',
         );
     }
+
 
     /**
      * @return string

@@ -1,9 +1,8 @@
 <?php
-
-namespace Elasticsearch\Common\Exceptions;
-
 /**
- * MaxRetriesException
+ * User: zach
+ * Date: 5/6/13
+ * Time: 4:48 PM
  *
  * @category Elasticsearch
  * @package  Elasticsearch\Common\Exceptions
@@ -11,6 +10,12 @@ namespace Elasticsearch\Common\Exceptions;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
-class MaxRetriesException extends TransportException implements ElasticsearchException
+namespace Elasticsearch\Common\Exceptions;
+
+/**
+ * BadMethodCallException
+ * Denote problems with a method call (e.g. incorrect number of arguments)
+ */
+class MaxRetriesException extends \Exception implements ElasticsearchException
 {
 }

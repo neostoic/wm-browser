@@ -3,16 +3,18 @@
 namespace Elasticsearch\Endpoints\Cat;
 
 use Elasticsearch\Endpoints\AbstractEndpoint;
+use Elasticsearch\Common\Exceptions;
 
 /**
  * Class Health
  *
  * @category Elasticsearch
- * @package  Elasticsearch\Endpoints\Cat
+ * @package Elasticsearch\Endpoints\Cat
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
+
 class Plugins extends AbstractEndpoint
 {
     /**
@@ -22,8 +24,10 @@ class Plugins extends AbstractEndpoint
     {
         $uri   = "/_cat/plugins";
 
+
         return $uri;
     }
+
 
     /**
      * @return string[]
@@ -38,6 +42,7 @@ class Plugins extends AbstractEndpoint
             'v',
         );
     }
+
 
     /**
      * @return string

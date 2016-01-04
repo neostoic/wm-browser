@@ -1,10 +1,14 @@
 <?php
+/**
+ * User: zach
+ * Date: 6/20/13
+ * Time: 9:15 AM
+ */
 
 namespace Elasticsearch\Tests\Serializers;
 
 use Elasticsearch\Serializers\EverythingToJSONSerializer;
 use PHPUnit_Framework_TestCase;
-use Mockery as m;
 
 /**
  * Class EverythingToJSONSerializerTest
@@ -12,11 +16,6 @@ use Mockery as m;
  */
 class EverythingToJSONSerializerTest extends PHPUnit_Framework_TestCase
 {
-    public function tearDown()
-    {
-        m::close();
-    }
-
     public function testSerializeArray()
     {
         $serializer = new EverythingToJSONSerializer();
@@ -26,6 +25,15 @@ class EverythingToJSONSerializerTest extends PHPUnit_Framework_TestCase
 
         $body = json_encode($body);
         $this->assertEquals($body, $ret);
+    }
+
+    public function testSerializeEmptyArrayReturnsEmptyJsonObject()
+    {
+        $serializer = new EverythingToJSONSerializer();
+
+        $ret = $serializer->serialize(array());
+
+        $this->assertEquals('{}', $ret);
     }
 
     public function testSerializeString()
@@ -39,6 +47,18 @@ class EverythingToJSONSerializerTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($body, $ret);
     }
 
+    /**
+     * @expectedException Elasticsearch\Common\Exceptions\Serializer\JsonSerializationError
+     */
+    public function testSerializeArrayWithInvalidUtf8ThrowsException()
+    {
+        $serializer = new EverythingToJSONSerializer();
+
+        $body = array("value" => "\xB1\x31"); // invalid UTF-8 byte sequence
+
+        $serializer->serialize($body);
+    }
+
     public function testDeserializeJSON()
     {
         $serializer = new EverythingToJSONSerializer();
@@ -48,5 +68,16 @@ class EverythingToJSONSerializerTest extends PHPUnit_Framework_TestCase
 
         $body = json_decode($body, true);
         $this->assertEquals($body, $ret);
+    }
+
+    /**
+     * @expectedException Elasticsearch\Common\Exceptions\Serializer\JsonDeserializationError
+     */
+    public function testDeserializeWithInvalidJsonThrowsException()
+    {
+        $serializer = new EverythingToJSONSerializer();
+        $body = '{"field":}';
+
+        $serializer->deserialize($body, array());
     }
 }

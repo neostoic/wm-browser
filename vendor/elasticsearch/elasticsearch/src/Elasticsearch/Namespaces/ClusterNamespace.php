@@ -1,4 +1,9 @@
 <?php
+/**
+ * User: zach
+ * Date: 5/9/13
+ * Time: 5:13 PM
+ */
 
 namespace Elasticsearch\Namespaces;
 
@@ -13,6 +18,16 @@ namespace Elasticsearch\Namespaces;
  */
 class ClusterNamespace extends AbstractNamespace
 {
+
+    /**
+     * @return callable
+     */
+    public static function build() {
+        return function ($dicParams) {
+            return new ClusterNamespace($dicParams['transport'], $dicParams['endpoint']);
+        };
+    }
+
     /**
      * $params['index']                      = (string) Limit the information returned to a specific index
      *        ['level']                      = (enum) Specify the level of detail for returned information
@@ -32,17 +47,19 @@ class ClusterNamespace extends AbstractNamespace
     {
         $index = $this->extractArgument($params, 'index');
 
+
+
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cluster\Health $endpoint */
         $endpoint = $endpointBuilder('Cluster\Health');
         $endpoint->setIndex($index);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
+
 
     /**
      * $params['dry_run']         = (boolean) Simulate the operation only and return the resulting state
@@ -58,16 +75,17 @@ class ClusterNamespace extends AbstractNamespace
     {
         $body = $this->extractArgument($params, 'body');
 
+
+
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cluster\Reroute $endpoint */
         $endpoint = $endpointBuilder('Cluster\Reroute');
         $endpoint->setBody($body);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -90,7 +108,7 @@ class ClusterNamespace extends AbstractNamespace
         $metric = $this->extractArgument($params, 'metric');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cluster\State $endpoint */
         $endpoint = $endpointBuilder('Cluster\State');
@@ -98,8 +116,7 @@ class ClusterNamespace extends AbstractNamespace
                  ->setIndex($index)
                  ->setMetric($metric);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -115,16 +132,16 @@ class ClusterNamespace extends AbstractNamespace
         $nodeID = $this->extractArgument($params, 'node_id');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cluster\Stats $endpoint */
         $endpoint = $endpointBuilder('Cluster\Stats');
         $endpoint->setNodeID($nodeID)
                  ->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
+
 
     /**
      * $params['body'] = ()
@@ -137,17 +154,19 @@ class ClusterNamespace extends AbstractNamespace
     {
         $body = $this->extractArgument($params, 'body');
 
+
+
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cluster\Settings\Put $endpoint */
         $endpoint = $endpointBuilder('Cluster\Settings\Put');
         $endpoint->setBody($body);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
+
 
     /**
      * @param array $params
@@ -157,15 +176,15 @@ class ClusterNamespace extends AbstractNamespace
     public function getSettings($params = array())
     {
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cluster\Settings\Put $endpoint */
         $endpoint = $endpointBuilder('Cluster\Settings\Get');
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
+
 
     /**
      * $params['local']   = (bool) Return local information, do not retrieve the state from master node (default: false)
@@ -177,14 +196,15 @@ class ClusterNamespace extends AbstractNamespace
      */
     public function pendingTasks($params = array())
     {
+
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cluster\PendingTasks $endpoint */
         $endpoint = $endpointBuilder('Cluster\PendingTasks');
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
+
 }

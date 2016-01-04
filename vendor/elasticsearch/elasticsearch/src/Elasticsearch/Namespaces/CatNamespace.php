@@ -1,4 +1,9 @@
 <?php
+/**
+ * User: zach
+ * Date: 5/9/13
+ * Time: 5:13 PM
+ */
 
 namespace Elasticsearch\Namespaces;
 
@@ -13,6 +18,16 @@ namespace Elasticsearch\Namespaces;
  */
 class CatNamespace extends AbstractNamespace
 {
+
+    /**
+     * @return callable
+     */
+    public static function build() {
+        return function ($dicParams) {
+            return new CatNamespace($dicParams['transport'], $dicParams['endpoint']);
+        };
+    }
+
     /**
      * $params['local']          = (bool) Return local information, do not retrieve the state from master node (default: false)
      *        ['master_timeout'] = (time) Explicit operation timeout for connection to master node
@@ -29,15 +44,14 @@ class CatNamespace extends AbstractNamespace
         $name = $this->extractArgument($params, 'name');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Aliases $endpoint */
         $endpoint = $endpointBuilder('Cat\Aliases');
         $endpoint->setName($name);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -57,15 +71,14 @@ class CatNamespace extends AbstractNamespace
         $nodeID = $this->extractArgument($params, 'node_id');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Allocation $endpoint */
         $endpoint = $endpointBuilder('Cat\Allocation');
         $endpoint->setNodeID($nodeID);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -84,15 +97,14 @@ class CatNamespace extends AbstractNamespace
         $index = $this->extractArgument($params, 'index');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Count $endpoint */
         $endpoint = $endpointBuilder('Cat\Count');
         $endpoint->setIndex($index);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -110,14 +122,13 @@ class CatNamespace extends AbstractNamespace
     public function health($params = array())
     {
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Health $endpoint */
         $endpoint = $endpointBuilder('Cat\Health');
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -130,14 +141,13 @@ class CatNamespace extends AbstractNamespace
     public function help($params = array())
     {
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Help $endpoint */
         $endpoint = $endpointBuilder('Cat\Help');
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -158,15 +168,14 @@ class CatNamespace extends AbstractNamespace
         $index = $this->extractArgument($params, 'index');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Indices $endpoint */
         $endpoint = $endpointBuilder('Cat\Indices');
         $endpoint->setIndex($index);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -183,14 +192,13 @@ class CatNamespace extends AbstractNamespace
     public function master($params = array())
     {
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Master $endpoint */
         $endpoint = $endpointBuilder('Cat\Master');
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -207,38 +215,13 @@ class CatNamespace extends AbstractNamespace
     public function nodes($params = array())
     {
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Nodes $endpoint */
         $endpoint = $endpointBuilder('Cat\Nodes');
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
-    }
-
-    /**
-     * $params['local']          = (bool) Return local information, do not retrieve the state from master node (default: false)
-     *        ['master_timeout'] = (time) Explicit operation timeout for connection to master node
-     *        ['h']              = (list) Comma-separated list of column names to display
-     *        ['help']           = (bool) Return help information
-     *        ['v']              = (bool) Verbose mode. Display column headers
-     *
-     * @param $params array Associative array of parameters
-     *
-     * @return array
-     */
-    public function nodeAttrs($params = array())
-    {
-        /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
-
-        /** @var \Elasticsearch\Endpoints\Cat\NodeAttrs $endpoint */
-        $endpoint = $endpointBuilder('Cat\NodeAttrs');
-        $endpoint->setParams($params);
-        $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -255,14 +238,13 @@ class CatNamespace extends AbstractNamespace
     public function pendingTasks($params = array())
     {
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\PendingTasks $endpoint */
         $endpoint = $endpointBuilder('Cat\PendingTasks');
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -282,15 +264,14 @@ class CatNamespace extends AbstractNamespace
         $index = $this->extractArgument($params, 'index');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Recovery $endpoint */
         $endpoint = $endpointBuilder('Cat\Recovery');
         $endpoint->setIndex($index);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -299,31 +280,6 @@ class CatNamespace extends AbstractNamespace
      *        ['h']              = (list) Comma-separated list of column names to display
      *        ['help']           = (bool) Return help information
      *        ['v']              = (bool) Verbose mode. Display column headers
-     *
-     * @param $params array Associative array of parameters
-     *
-     * @return array
-     */
-    public function repositories($params = array())
-    {
-        /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
-
-        /** @var \Elasticsearch\Endpoints\Cat\Repositories $endpoint */
-        $endpoint = $endpointBuilder('Cat\Repositories');
-        $endpoint->setParams($params);
-        $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
-    }
-
-    /**
-     * $params['local']          = (bool) Return local information, do not retrieve the state from master node (default: false)
-     *        ['master_timeout'] = (time) Explicit operation timeout for connection to master node
-     *        ['h']              = (list) Comma-separated list of column names to display
-     *        ['help']           = (bool) Return help information
-     *        ['v']              = (bool) Verbose mode. Display column headers
-     *        ['bytes']          = (enum) The unit in which to display byte values
      *
      * @param $params array Associative array of parameters
      *
@@ -334,44 +290,14 @@ class CatNamespace extends AbstractNamespace
         $index = $this->extractArgument($params, 'index');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Shards $endpoint */
         $endpoint = $endpointBuilder('Cat\Shards');
         $endpoint->setIndex($index);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
-    }
-
-    /**
-     * $params['local']          = (bool) Return local information, do not retrieve the state from master node (default: false)
-     *        ['master_timeout'] = (time) Explicit operation timeout for connection to master node
-     *        ['h']              = (list) Comma-separated list of column names to display
-     *        ['help']           = (bool) Return help information
-     *        ['v']              = (bool) Verbose mode. Display column headers
-     *        ['bytes']          = (enum) The unit in which to display byte values
-     *        ['repository']     = (string) Name of repository from which to fetch the snapshot information
-     *
-     * @param $params array Associative array of parameters
-     *
-     * @return array
-     */
-    public function snapshots($params = array())
-    {
-        $repository = $this->extractArgument($params, 'repository');
-
-        /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
-
-        /** @var \Elasticsearch\Endpoints\Cat\Snapshots $endpoint */
-        $endpoint = $endpointBuilder('Cat\Snapshots');
-        $endpoint->setRepository($repository);
-        $endpoint->setParams($params);
-        $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -391,15 +317,14 @@ class CatNamespace extends AbstractNamespace
         $index = $this->extractArgument($params, 'index');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\ThreadPool $endpoint */
         $endpoint = $endpointBuilder('Cat\ThreadPool');
         $endpoint->setIndex($index);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -420,39 +345,14 @@ class CatNamespace extends AbstractNamespace
         $fields = $this->extractArgument($params, 'fields');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Fielddata $endpoint */
         $endpoint = $endpointBuilder('Cat\Fielddata');
         $endpoint->setFields($fields);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
-    }
-
-    /**
-     * $params['local']          = (bool) Return local information, do not retrieve the state from master node (default: false)
-     *        ['master_timeout'] = (time) Explicit operation timeout for connection to master node
-     *        ['h']              = (list) Comma-separated list of column names to display
-     *        ['help']           = (bool) Return help information
-     *        ['v']              = (bool) Verbose mode. Display column headers
-     *
-     * @param $params array Associative array of parameters
-     *
-     * @return array
-     */
-    public function plugins($params = array())
-    {
-        /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
-
-        /** @var \Elasticsearch\Endpoints\Cat\Plugins $endpoint */
-        $endpoint = $endpointBuilder('Cat\Plugins');
-        $endpoint->setParams($params);
-        $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
 
     /**
@@ -469,14 +369,38 @@ class CatNamespace extends AbstractNamespace
         $index = $this->extractArgument($params, 'index');
 
         /** @var callback $endpointBuilder */
-        $endpointBuilder = $this->endpoints;
+        $endpointBuilder = $this->dicEndpoints;
 
         /** @var \Elasticsearch\Endpoints\Cat\Segments $endpoint */
         $endpoint = $endpointBuilder('Cat\Segments');
         $endpoint->setIndex($index);
         $endpoint->setParams($params);
         $response = $endpoint->performRequest();
-
-        return $endpoint->resultOrFuture($response);
+        return $response['data'];
     }
+
+
+    /**
+     * $params['local']          = (bool) Return local information, do not retrieve the state from master node (default: false)
+     *        ['master_timeout'] = (time) Explicit operation timeout for connection to master node
+     *        ['h']              = (list) Comma-separated list of column names to display
+     *        ['help']           = (bool) Return help information
+     *        ['v']              = (bool) Verbose mode. Display column headers
+     *
+     * @param $params array Associative array of parameters
+     *
+     * @return array
+     */
+    public function plugins($params = array())
+    {
+        /** @var callback $endpointBuilder */
+        $endpointBuilder = $this->dicEndpoints;
+
+        /** @var \Elasticsearch\Endpoints\Cat\Plugins $endpoint */
+        $endpoint = $endpointBuilder('Cat\Plugins');
+        $endpoint->setParams($params);
+        $response = $endpoint->performRequest();
+        return $response['data'];
+    }
+
 }

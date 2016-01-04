@@ -1,4 +1,9 @@
 <?php
+/**
+ * User: zach
+ * Date: 01/20/2014
+ * Time: 14:34:49 pm
+ */
 
 namespace Elasticsearch\Endpoints\Indices\Template;
 
@@ -20,6 +25,7 @@ class Delete extends AbstractEndpoint
     // The name of the template
     private $name;
 
+
     /**
      * @param $name
      *
@@ -32,9 +38,9 @@ class Delete extends AbstractEndpoint
         }
 
         $this->name = $name;
-
         return $this;
     }
+
 
     /**
      * @throws \Elasticsearch\Common\Exceptions\RuntimeException
@@ -57,6 +63,7 @@ class Delete extends AbstractEndpoint
         return $uri;
     }
 
+
     /**
      * @return string[]
      */
@@ -67,6 +74,7 @@ class Delete extends AbstractEndpoint
             'master_timeout',
         );
     }
+
 
     /**
      * @return string

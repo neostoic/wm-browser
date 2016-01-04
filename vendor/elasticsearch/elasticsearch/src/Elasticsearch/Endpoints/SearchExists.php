@@ -2,20 +2,22 @@
 
 namespace Elasticsearch\Endpoints;
 
-use Elasticsearch\Common\Exceptions\InvalidArgumentException;
+use Elasticsearch\Endpoints\AbstractEndpoint;
 use Elasticsearch\Common\Exceptions;
 
 /**
- * Class Search
+ * Class SearchExists
  *
  * @category Elasticsearch
- * @package  Elasticsearch\Endpoints
+ * @package Elasticsearch\Endpoints\Indices
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
+
 class SearchExists extends AbstractEndpoint
 {
+
     /**
      * @param array $body
      *
@@ -29,17 +31,20 @@ class SearchExists extends AbstractEndpoint
         }
 
         $this->body = $body;
-
         return $this;
     }
 
+
     /**
+     * @throws \Elasticsearch\Common\Exceptions\RuntimeException
      * @return string
      */
     protected function getURI()
     {
+
         $index = $this->index;
         $type = $this->type;
+
         $uri   = "/_search/exists";
 
         if (isset($index) === true && isset($type) === true) {
@@ -52,6 +57,7 @@ class SearchExists extends AbstractEndpoint
 
         return $uri;
     }
+
 
     /**
      * @return string[]
@@ -92,6 +98,7 @@ class SearchExists extends AbstractEndpoint
             'version',
         );
     }
+
 
     /**
      * @return string

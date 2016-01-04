@@ -1,4 +1,9 @@
 <?php
+/**
+ * User: zach
+ * Date: 09/25/2014
+ * Time: 11:35::00 AM
+ */
 
 namespace Elasticsearch\Endpoints\Indices;
 
@@ -9,13 +14,15 @@ use Elasticsearch\Common\Exceptions;
  * Class Get
  *
  * @category Elasticsearch
- * @package  Elasticsearch\Endpoints\Get
+ * @package Elasticsearch\Endpoints\Get
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
+
 class Get extends AbstractEndpoint
 {
+
     private $feature;
 
     /**
@@ -51,9 +58,9 @@ class Get extends AbstractEndpoint
         }
 
         $this->feature = $feature;
-
         return $this;
     }
+
 
     /**
      * @return string[]
@@ -68,6 +75,7 @@ class Get extends AbstractEndpoint
             'human'
         );
     }
+
 
     /**
      * @return string

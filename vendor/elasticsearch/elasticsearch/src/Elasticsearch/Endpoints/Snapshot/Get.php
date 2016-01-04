@@ -1,4 +1,9 @@
 <?php
+/**
+ * User: zach
+ * Date: 01/20/2014
+ * Time: 14:34:49 pm
+ */
 
 namespace Elasticsearch\Endpoints\Snapshot;
 
@@ -9,18 +14,21 @@ use Elasticsearch\Common\Exceptions;
  * Class Get
  *
  * @category Elasticsearch
- * @package  Elasticsearch\Endpoints\Snapshot
+ * @package Elasticsearch\Endpoints\Snapshot
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
+
 class Get extends AbstractEndpoint
 {
     // A comma-separated list of repository names
     private $repository;
 
+
     // A comma-separated list of snapshot names
     private $snapshot;
+
 
     /**
      * @param $repository
@@ -34,9 +42,9 @@ class Get extends AbstractEndpoint
         }
 
         $this->repository = $repository;
-
         return $this;
     }
+
 
     /**
      * @param $snapshot
@@ -50,9 +58,9 @@ class Get extends AbstractEndpoint
         }
 
         $this->snapshot = $snapshot;
-
         return $this;
     }
+
 
     /**
      * @throws \Elasticsearch\Common\Exceptions\RuntimeException
@@ -81,6 +89,7 @@ class Get extends AbstractEndpoint
         return $uri;
     }
 
+
     /**
      * @return string[]
      */
@@ -90,6 +99,7 @@ class Get extends AbstractEndpoint
             'master_timeout',
         );
     }
+
 
     /**
      * @return string

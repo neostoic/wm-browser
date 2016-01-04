@@ -1,18 +1,30 @@
 <?php
+/**
+ * User: zach
+ * Date: 4/29/14
+ * Time: 12:44 PM
+ */
 
 namespace Elasticsearch\Endpoints;
+
+use Elasticsearch\Common\Exceptions\InvalidArgumentException;
+use Elasticsearch\Endpoints\AbstractEndpoint;
+use Elasticsearch\Common\Exceptions;
 
 /**
  * Class Search
  *
  * @category Elasticsearch
- * @package  Elasticsearch\Endpoints
+ * @package Elasticsearch\Endpoints
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
+
 class SearchShards extends AbstractEndpoint
 {
+
+
     /**
      * @return string
      */
@@ -33,6 +45,7 @@ class SearchShards extends AbstractEndpoint
         return $uri;
     }
 
+
     /**
      * @return string[]
      */
@@ -47,6 +60,7 @@ class SearchShards extends AbstractEndpoint
             'expand_wildcards'
         );
     }
+
 
     /**
      * @return string

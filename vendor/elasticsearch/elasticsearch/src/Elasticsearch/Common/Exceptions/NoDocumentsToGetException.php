@@ -1,4 +1,10 @@
 <?php
+/**
+ * User: zach
+ * Date: 7/23/13
+ * Time: 5:05 PM
+ */
+
 
 namespace Elasticsearch\Common\Exceptions;
 

@@ -1,20 +1,22 @@
 <?php
+/**
+ * User: zach
+ * Date: 06/04/2013
+ * Time: 13:33:19 pm
+ */
 
 namespace Elasticsearch\Endpoints\Indices\Gateway;
 
 use Elasticsearch\Endpoints\AbstractEndpoint;
+use Elasticsearch\Common\Exceptions;
 
 /**
  * Class Snapshot
- *
- * @category Elasticsearch
- * @package  Elasticsearch\Endpoints\Indices\Gateway
- * @author   Zachary Tong <zachary.tong@elasticsearch.com>
- * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
- * @link     http://elasticsearch.org
+ * @package Elasticsearch\Endpoints\Indices\Gateway
  */
 class Snapshot extends AbstractEndpoint
 {
+
     /**
      * @return string
      */
@@ -22,6 +24,7 @@ class Snapshot extends AbstractEndpoint
     {
         $index = $this->index;
         $uri   = "/_gateway/snapshot";
+
 
         if (isset($index) === true) {
             $uri = "/$index/_gateway/snapshot";
