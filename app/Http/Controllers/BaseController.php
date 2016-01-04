@@ -17,11 +17,9 @@ class BaseController extends Controller
 		//Log::debug("New Request!");
 		if (config('app.debug') === true)
 		{
-			//$data = self::scrubber($this->input());
-
 			//if(isset($data['password'])) $data['password'] = "****";
 
-			$data = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+			$data = json_encode($this->input(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
 			Log::debug("Posted data: ". $data );
 		}
