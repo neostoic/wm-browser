@@ -1699,137 +1699,6 @@
         ]
     },
     {
-        "name": "laravel/framework",
-        "version": "v5.2.5",
-        "version_normalized": "5.2.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/laravel/framework.git",
-            "reference": "1d165631b90d104c517d54455a5e867584645473"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/1d165631b90d104c517d54455a5e867584645473",
-            "reference": "1d165631b90d104c517d54455a5e867584645473",
-            "shasum": ""
-        },
-        "require": {
-            "classpreloader/classpreloader": "~3.0",
-            "doctrine/inflector": "~1.0",
-            "ext-mbstring": "*",
-            "ext-openssl": "*",
-            "jeremeamia/superclosure": "~2.2",
-            "league/flysystem": "~1.0",
-            "monolog/monolog": "~1.11",
-            "mtdowling/cron-expression": "~1.0",
-            "nesbot/carbon": "~1.20",
-            "paragonie/random_compat": "~1.1",
-            "php": ">=5.5.9",
-            "psy/psysh": "0.6.*",
-            "swiftmailer/swiftmailer": "~5.1",
-            "symfony/console": "2.8.*|3.0.*",
-            "symfony/debug": "2.8.*|3.0.*",
-            "symfony/finder": "2.8.*|3.0.*",
-            "symfony/http-foundation": "2.8.*|3.0.*",
-            "symfony/http-kernel": "2.8.*|3.0.*",
-            "symfony/polyfill-php56": "~1.0",
-            "symfony/process": "2.8.*|3.0.*",
-            "symfony/routing": "2.8.*|3.0.*",
-            "symfony/translation": "2.8.*|3.0.*",
-            "symfony/var-dumper": "2.8.*|3.0.*",
-            "vlucas/phpdotenv": "~2.0"
-        },
-        "replace": {
-            "illuminate/auth": "self.version",
-            "illuminate/broadcasting": "self.version",
-            "illuminate/bus": "self.version",
-            "illuminate/cache": "self.version",
-            "illuminate/config": "self.version",
-            "illuminate/console": "self.version",
-            "illuminate/container": "self.version",
-            "illuminate/contracts": "self.version",
-            "illuminate/cookie": "self.version",
-            "illuminate/database": "self.version",
-            "illuminate/encryption": "self.version",
-            "illuminate/events": "self.version",
-            "illuminate/exception": "self.version",
-            "illuminate/filesystem": "self.version",
-            "illuminate/hashing": "self.version",
-            "illuminate/http": "self.version",
-            "illuminate/log": "self.version",
-            "illuminate/mail": "self.version",
-            "illuminate/pagination": "self.version",
-            "illuminate/pipeline": "self.version",
-            "illuminate/queue": "self.version",
-            "illuminate/redis": "self.version",
-            "illuminate/routing": "self.version",
-            "illuminate/session": "self.version",
-            "illuminate/support": "self.version",
-            "illuminate/translation": "self.version",
-            "illuminate/validation": "self.version",
-            "illuminate/view": "self.version"
-        },
-        "require-dev": {
-            "aws/aws-sdk-php": "~3.0",
-            "iron-io/iron_mq": "~2.0",
-            "mockery/mockery": "~0.9.2",
-            "pda/pheanstalk": "~3.0",
-            "phpunit/phpunit": "~4.1",
-            "predis/predis": "~1.0",
-            "symfony/css-selector": "2.8.*|3.0.*",
-            "symfony/dom-crawler": "2.8.*|3.0.*"
-        },
-        "suggest": {
-            "aws/aws-sdk-php": "Required to use the SQS queue driver and SES mail driver (~3.0).",
-            "doctrine/dbal": "Required to rename columns and drop SQLite columns (~2.4).",
-            "fzaninotto/faker": "Required to use the eloquent factory builder (~1.4).",
-            "guzzlehttp/guzzle": "Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~5.3|~6.0).",
-            "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
-            "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0).",
-            "pda/pheanstalk": "Required to use the beanstalk queue driver (~3.0).",
-            "predis/predis": "Required to use the redis cache and queue drivers (~1.0).",
-            "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
-            "symfony/css-selector": "Required to use some of the crawler integration testing tools (2.8.*|3.0.*).",
-            "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (2.8.*|3.0.*)."
-        },
-        "time": "2015-12-24 15:39:57",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/Illuminate/Queue/IlluminateQueueClosure.php"
-            ],
-            "files": [
-                "src/Illuminate/Foundation/helpers.php",
-                "src/Illuminate/Support/helpers.php"
-            ],
-            "psr-4": {
-                "Illuminate\\": "src/Illuminate/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Taylor Otwell",
-                "email": "taylorotwell@gmail.com"
-            }
-        ],
-        "description": "The Laravel Framework.",
-        "homepage": "http://laravel.com",
-        "keywords": [
-            "framework",
-            "laravel"
-        ]
-    },
-    {
         "name": "fzaninotto/faker",
         "version": "v1.5.0",
         "version_normalized": "1.5.0.0",
@@ -3096,5 +2965,393 @@
         ],
         "description": "Symfony DomCrawler Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "react/promise",
+        "version": "v2.2.1",
+        "version_normalized": "2.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/reactphp/promise.git",
+            "reference": "3b6fca09c7d56321057fa8867c8dbe1abf648627"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/reactphp/promise/zipball/3b6fca09c7d56321057fa8867c8dbe1abf648627",
+            "reference": "3b6fca09c7d56321057fa8867c8dbe1abf648627",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2015-07-03 13:48:55",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "React\\Promise\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jan Sorgalla",
+                "email": "jsorgalla@gmail.com"
+            }
+        ],
+        "description": "A lightweight implementation of CommonJS Promises/A for PHP"
+    },
+    {
+        "name": "guzzlehttp/streams",
+        "version": "3.0.0",
+        "version_normalized": "3.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/streams.git",
+            "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/streams/zipball/47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
+            "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2014-10-12 19:18:40",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Stream\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Provides a simple abstraction over streams of data",
+        "homepage": "http://guzzlephp.org/",
+        "keywords": [
+            "Guzzle",
+            "stream"
+        ]
+    },
+    {
+        "name": "guzzlehttp/ringphp",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/RingPHP.git",
+            "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+            "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/streams": "~3.0",
+            "php": ">=5.4.0",
+            "react/promise": "~2.0"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "phpunit/phpunit": "~4.0"
+        },
+        "suggest": {
+            "ext-curl": "Guzzle will use specific adapters if cURL is present"
+        },
+        "time": "2015-05-20 03:37:09",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Ring\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function."
+    },
+    {
+        "name": "elasticsearch/elasticsearch",
+        "version": "v2.1.3",
+        "version_normalized": "2.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/elastic/elasticsearch-php.git",
+            "reference": "7086a86cab241a77f19cdd653ae3d2e023b41699"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/elastic/elasticsearch-php/zipball/7086a86cab241a77f19cdd653ae3d2e023b41699",
+            "reference": "7086a86cab241a77f19cdd653ae3d2e023b41699",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/ringphp": "~1.0",
+            "php": ">=5.4",
+            "psr/log": "~1.0"
+        },
+        "require-dev": {
+            "athletic/athletic": "~0.1",
+            "cpliakas/git-wrapper": "~1.0",
+            "mockery/mockery": "0.9.4",
+            "phpunit/phpunit": "~4.7",
+            "symfony/yaml": "2.4.3 as 2.4.2",
+            "twig/twig": "1.*"
+        },
+        "suggest": {
+            "ext-curl": "*",
+            "monolog/monolog": "Allows for client-level logging and tracing"
+        },
+        "time": "2015-12-15 18:42:26",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Elasticsearch\\": "src/Elasticsearch/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache 2"
+        ],
+        "authors": [
+            {
+                "name": "Zachary Tong"
+            }
+        ],
+        "description": "PHP Client for Elasticsearch",
+        "keywords": [
+            "client",
+            "elasticsearch",
+            "search"
+        ]
+    },
+    {
+        "name": "cviebrock/laravel-elasticsearch",
+        "version": "0.9.3",
+        "version_normalized": "0.9.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cviebrock/laravel-elasticsearch.git",
+            "reference": "b1e4767f38af8e9ad36ef4ca87327e38a3d85f4f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cviebrock/laravel-elasticsearch/zipball/b1e4767f38af8e9ad36ef4ca87327e38a3d85f4f",
+            "reference": "b1e4767f38af8e9ad36ef4ca87327e38a3d85f4f",
+            "shasum": ""
+        },
+        "require": {
+            "elasticsearch/elasticsearch": "~2.0@beta",
+            "illuminate/support": "~4|~5",
+            "monolog/monolog": "~1",
+            "php": ">=5.4.0"
+        },
+        "time": "2015-06-12 14:11:47",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Cviebrock\\LaravelElasticsearch\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Colin Viebrock",
+                "email": "colin@viebrock.ca"
+            },
+            {
+                "name": "Brandon Martel",
+                "email": "brandonmartel@gmail.com"
+            }
+        ],
+        "description": "An easy way to use the official PHP ElasticSearch client in your Laravel applications",
+        "keywords": [
+            "client",
+            "elasticsearch",
+            "laravel",
+            "search"
+        ]
+    },
+    {
+        "name": "laravel/framework",
+        "version": "v5.2.6",
+        "version_normalized": "5.2.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/laravel/framework.git",
+            "reference": "b774c304ee81fcf5402fa06b261b364ba8f29cf0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/b774c304ee81fcf5402fa06b261b364ba8f29cf0",
+            "reference": "b774c304ee81fcf5402fa06b261b364ba8f29cf0",
+            "shasum": ""
+        },
+        "require": {
+            "classpreloader/classpreloader": "~3.0",
+            "doctrine/inflector": "~1.0",
+            "ext-mbstring": "*",
+            "ext-openssl": "*",
+            "jeremeamia/superclosure": "~2.2",
+            "league/flysystem": "~1.0",
+            "monolog/monolog": "~1.11",
+            "mtdowling/cron-expression": "~1.0",
+            "nesbot/carbon": "~1.20",
+            "paragonie/random_compat": "~1.1",
+            "php": ">=5.5.9",
+            "psy/psysh": "0.6.*",
+            "swiftmailer/swiftmailer": "~5.1",
+            "symfony/console": "2.8.*|3.0.*",
+            "symfony/debug": "2.8.*|3.0.*",
+            "symfony/finder": "2.8.*|3.0.*",
+            "symfony/http-foundation": "2.8.*|3.0.*",
+            "symfony/http-kernel": "2.8.*|3.0.*",
+            "symfony/polyfill-php56": "~1.0",
+            "symfony/process": "2.8.*|3.0.*",
+            "symfony/routing": "2.8.*|3.0.*",
+            "symfony/translation": "2.8.*|3.0.*",
+            "symfony/var-dumper": "2.8.*|3.0.*",
+            "vlucas/phpdotenv": "~2.2"
+        },
+        "replace": {
+            "illuminate/auth": "self.version",
+            "illuminate/broadcasting": "self.version",
+            "illuminate/bus": "self.version",
+            "illuminate/cache": "self.version",
+            "illuminate/config": "self.version",
+            "illuminate/console": "self.version",
+            "illuminate/container": "self.version",
+            "illuminate/contracts": "self.version",
+            "illuminate/cookie": "self.version",
+            "illuminate/database": "self.version",
+            "illuminate/encryption": "self.version",
+            "illuminate/events": "self.version",
+            "illuminate/exception": "self.version",
+            "illuminate/filesystem": "self.version",
+            "illuminate/hashing": "self.version",
+            "illuminate/http": "self.version",
+            "illuminate/log": "self.version",
+            "illuminate/mail": "self.version",
+            "illuminate/pagination": "self.version",
+            "illuminate/pipeline": "self.version",
+            "illuminate/queue": "self.version",
+            "illuminate/redis": "self.version",
+            "illuminate/routing": "self.version",
+            "illuminate/session": "self.version",
+            "illuminate/support": "self.version",
+            "illuminate/translation": "self.version",
+            "illuminate/validation": "self.version",
+            "illuminate/view": "self.version"
+        },
+        "require-dev": {
+            "aws/aws-sdk-php": "~3.0",
+            "mockery/mockery": "~0.9.2",
+            "pda/pheanstalk": "~3.0",
+            "phpunit/phpunit": "~4.1",
+            "predis/predis": "~1.0",
+            "symfony/css-selector": "2.8.*|3.0.*",
+            "symfony/dom-crawler": "2.8.*|3.0.*"
+        },
+        "suggest": {
+            "aws/aws-sdk-php": "Required to use the SQS queue driver and SES mail driver (~3.0).",
+            "doctrine/dbal": "Required to rename columns and drop SQLite columns (~2.4).",
+            "fzaninotto/faker": "Required to use the eloquent factory builder (~1.4).",
+            "guzzlehttp/guzzle": "Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~5.3|~6.0).",
+            "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
+            "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0).",
+            "pda/pheanstalk": "Required to use the beanstalk queue driver (~3.0).",
+            "predis/predis": "Required to use the redis cache and queue drivers (~1.0).",
+            "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
+            "symfony/css-selector": "Required to use some of the crawler integration testing tools (2.8.*|3.0.*).",
+            "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (2.8.*|3.0.*)."
+        },
+        "time": "2015-12-31 17:41:58",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/Illuminate/Queue/IlluminateQueueClosure.php"
+            ],
+            "files": [
+                "src/Illuminate/Foundation/helpers.php",
+                "src/Illuminate/Support/helpers.php"
+            ],
+            "psr-4": {
+                "Illuminate\\": "src/Illuminate/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            }
+        ],
+        "description": "The Laravel Framework.",
+        "homepage": "http://laravel.com",
+        "keywords": [
+            "framework",
+            "laravel"
+        ]
     }
 ]
