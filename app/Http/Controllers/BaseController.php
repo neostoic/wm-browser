@@ -15,18 +15,15 @@ class BaseController extends Controller
 	public function __construct ()
 	{
 		//Log::debug("New Request!");
-		if ($this->input() != "")
+		if ($_ENV['APP_DEBUG'] === true)
 		{
-			if ($this->debug)
-			{
-				$data = self::scrubber($this->input());
+			$data = self::scrubber($this->input());
 
-				//if(isset($data['password'])) $data['password'] = "****";
+			//if(isset($data['password'])) $data['password'] = "****";
 
-				$data = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+			$data = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
-				Log::debug("Posted data: ". $data );
-			}
+			Log::debug("Posted data: ". $data );
 		}
 
 		// parent::__construct();
@@ -55,7 +52,7 @@ class BaseController extends Controller
 				{
 					// we have to do a raw write here...
 					http_response_code(400);
-					if($this->debug)
+					if($_ENV['APP_DEBUG'] === true)
 						Log::debug("Invalid JSON in this request: ". $in);
 					echo json_encode(["message" => "Error: Malformed JSON"]);
 					exit;
@@ -104,7 +101,7 @@ class BaseController extends Controller
 		$outp = json_encode($output, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES );
 		$in = json_encode($output, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-		if ($this->debug)
+		if ($_ENV['APP_DEBUG'] === true)
 			Log::debug("Output: \r\n" . $outp );
 		trim($outp);
 
