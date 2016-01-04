@@ -72,7 +72,7 @@ class APISearchController extends BaseController
 		curl_setopt($ch, CURLOPT_URL, "https://search-prod.weedmaps.com:9201/weedmaps/_search");
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
-		curl_setopt($ch, CURLOPT_POST);
+		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $postJSON);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, 'Content-Type: application/json');
 
