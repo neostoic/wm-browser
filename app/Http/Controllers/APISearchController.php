@@ -64,7 +64,7 @@ class APISearchController extends BaseController
     		],
     	];
 
-    	$results = Weedmaps::searchByQuery($query);
+    	$results = \App\Weedmaps::searchByQuery($query);
 
     	dd($results);
     }
