@@ -14,7 +14,7 @@ class APISearchController extends BaseController
     	}
 
 
-		$query = [
+		$sort = [
     		'sort' => [
     			[
     				'package_level_raw' => [
@@ -35,6 +35,8 @@ class APISearchController extends BaseController
     				],
     			],
     		],
+    	];
+    	$query = [
     		"query" =>	[
     			"filtered" =>	[
     				"filter" =>	[
@@ -64,7 +66,14 @@ class APISearchController extends BaseController
     		],
     	];
 
-    	$results = \App\Dispensary::searchByQuery($query);
+    	$client = new \Elasticsearch\Client();
+
+    	$params = [
+			'index' => 'weedmaps'
+			'body'	=> $query,
+		];
+
+		$results = $client->search($params);
 
     	dd($results);
     }
