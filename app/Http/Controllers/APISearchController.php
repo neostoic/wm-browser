@@ -66,7 +66,10 @@ class APISearchController extends BaseController
     		],
     	];
 
-    	$client = new \Elasticsearch\Client();
+    	$client = \Elasticsearch\ClientBuilder::create()
+    			    	->setHosts(["https://search-prod.weedmaps.com:9201"])
+    					->setRetries(0)
+    					->build();
 
     	$params = [
 			'index' => 'weedmaps',
