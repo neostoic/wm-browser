@@ -69,7 +69,7 @@ class APISearchController extends BaseController
     	$client = new \Elasticsearch\Client();
 
     	$params = [
-			'index' => 'weedmaps'
+			'index' => 'weedmaps',
 			'body'	=> $query,
 		];
 
