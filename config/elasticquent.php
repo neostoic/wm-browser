@@ -14,7 +14,7 @@ return array(
     */
 
     'config' => [
-        'hosts'     => ['search-prod.weedmaps.com:9200'],
+        'hosts'     => ['https://search-prod.weedmaps.com:9201'],
         'logging'   => true,
         'logPath'   => storage_path() . '/logs/elasticsearch.log',
         'logLevel'  => Monolog\Logger::WARNING,
